@@ -1,3 +1,29 @@
 <resources>
     <string name="app_name">AudioBookPlayer</string>
+    <string-array
+        name="title">
+        <item>On the Origins of Species</item>
+        <item>The Communist Manifesto</item>
+        <item>The Complete Works</item>
+        <item>The Republic</item>
+        <item>The Art of War</item>
+        <item>The Wealth of Nations</item>
+        <item>Orientalism</item>
+        <item>The Meaning of Relativity</item>
+        <item>Journey to the West</item>
+        <item>A Brief History of Time</item>
+    </string-array>
+    <string-array
+        name="author">
+        <item>Charles Darwin</item>
+        <item>Karl Marx and Friedrich Engels</item>
+        <item>William Shakespeare</item>
+        <item>Plato</item>
+        <item>Sun Tzu</item>
+        <item>Adam Smith</item>
+        <item>Edward Said</item>
+        <item>Albert Einstein</item>
+        <item>Wu ChengEn</item>
+        <item>Stephen Hawking</item>
+    </string-array>
 </resources>
