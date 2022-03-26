@@ -8,8 +8,8 @@
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/container1"
-        android:layout_width="264dp"
-        android:layout_height="410dp"
+        android:layout_width="241dp"
+        android:layout_height="414dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHeight_percent=".35"
         app:layout_constraintStart_toStartOf="parent"

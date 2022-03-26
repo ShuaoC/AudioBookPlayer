@@ -40,6 +40,7 @@ class BookListFragment : Fragment() {
 
                 val clickEvent = {
                     book : BookObject -> bookViewModel.setSelectedBook(book)
+                    (requireActivity() as BookListFragmentInterface).bookSelected()
                 }
                 layoutManager = LinearLayoutManager(requireContext())
                 adapter = BookAdapter(this,clickEvent)
@@ -85,6 +86,10 @@ class BookListFragment : Fragment() {
                     putParcelableArrayList(BookListKey, bookList.list)
                 }
             }
+    }
+
+    interface BookListFragmentInterface {
+        fun bookSelected()
     }
 
 }
