@@ -12,7 +12,7 @@ class BookList {
         list.remove(book)
     }
 
-    fun get(index : Int) : BookObject{
+    operator fun get(index : Int) : BookObject{
         return list.get(index)
     }
 
