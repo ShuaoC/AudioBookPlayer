@@ -2,6 +2,8 @@ package edu.temple.audiobookplayer
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
+import androidx.lifecycle.ViewModelProvider
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -14,6 +16,16 @@ class MainActivity : AppCompatActivity() {
 
         for(i in 0..9){
             bookList.add(BookObject(title[i],author[i]))
+        }
+
+        val bookViewModel = ViewModelProvider(this).get(BookViewModel::class.java)
+
+        bookViewModel.getSeletedBook().observe(this){
+            if(findViewById<View>(R.id.container2) == null)
+                supportFragmentManager
+                    .beginTransaction()
+                    .replace(R.id.container1,BookDetailsFragment())
+                    .commit()
         }
 
         supportFragmentManager
