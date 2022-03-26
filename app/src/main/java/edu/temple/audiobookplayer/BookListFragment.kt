@@ -13,7 +13,6 @@ private const val BookListKey = "param1"
 
 class BookListFragment : Fragment() {
     private var bookList: ArrayList<BookObject>? = null
-    private var recyclerView : RecyclerView = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,8 +31,14 @@ class BookListFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         with(view as RecyclerView){
-            layoutManager = LinearLayoutManager(requireContext())
+            bookList?.run {
 
+                val clickEvent = {
+                    book : String? ->
+                }
+                layoutManager = LinearLayoutManager(requireContext())
+                adapter = BookAdapter(this,clickEvent)
+            }
         }
     }
 

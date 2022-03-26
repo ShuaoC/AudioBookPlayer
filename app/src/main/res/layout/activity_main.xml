@@ -7,10 +7,9 @@
     tools:context=".MainActivity">
 
     <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/listFragment"
-        android:name="edu.temple.audiobookplayer.BookDisplay"
-        android:layout_width="412dp"
-        android:layout_height="733dp"
+        android:id="@+id/container1"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

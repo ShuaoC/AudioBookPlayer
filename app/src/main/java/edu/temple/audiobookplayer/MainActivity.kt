@@ -18,7 +18,7 @@ class MainActivity : AppCompatActivity() {
 
         supportFragmentManager
             .beginTransaction()
-            .add(R.id.listFragment, BookListFragment.newInstance(bookList))
+            .add(R.id.container1, BookListFragment.newInstance(bookList))
             .commit()
 
     }
