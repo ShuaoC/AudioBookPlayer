@@ -1,11 +1,13 @@
 package edu.temple.audiobookplayer
 
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
@@ -13,9 +15,12 @@ private const val BookListKey = "param1"
 
 class BookListFragment : Fragment() {
     private var bookList: ArrayList<BookObject>? = null
+    private lateinit var bookViewModel: BookViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        bookViewModel = ViewModelProvider(requireActivity()).get(BookViewModel::class.java)
         arguments?.let {
             bookList = it.getParcelableArrayList<BookObject>(BookListKey);
         }
@@ -34,7 +39,7 @@ class BookListFragment : Fragment() {
             bookList?.run {
 
                 val clickEvent = {
-                    book : String? ->
+                    book : BookObject -> bookViewModel.setSelectedBook(book)
                 }
                 layoutManager = LinearLayoutManager(requireContext())
                 adapter = BookAdapter(this,clickEvent)
@@ -42,7 +47,7 @@ class BookListFragment : Fragment() {
         }
     }
 
-    class BookAdapter(_books : ArrayList<BookObject>, _clickEvent : (String?) -> Unit) : RecyclerView.Adapter<BookAdapter.BookViewHolder>(){
+    class BookAdapter(_books : ArrayList<BookObject>, _clickEvent : (BookObject) -> Unit) : RecyclerView.Adapter<BookAdapter.BookViewHolder>(){
 
         val books = _books
         val clickEvent = _clickEvent
@@ -63,7 +68,7 @@ class BookListFragment : Fragment() {
         override fun onBindViewHolder(holder: BookViewHolder, position: Int) {
             holder.titleTxt.text = books[position].title
             holder.authorTxt.text = books[position].author
-            holder.view.setOnClickListener{clickEvent(books[position].title)}
+            holder.view.setOnClickListener{clickEvent(books[position])}
         }
 
         override fun getItemCount(): Int {
