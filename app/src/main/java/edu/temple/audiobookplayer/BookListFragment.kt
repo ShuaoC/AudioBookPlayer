@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
@@ -36,21 +37,28 @@ class BookListFragment : Fragment() {
         }
     }
 
-    class BookAdapter(_books : ArrayList<BookObject>, _clickEvent : (String) -> Unit) : RecyclerView.Adapter<BookAdapter.BookViewHolder>(){
+    class BookAdapter(_books : ArrayList<BookObject>, _clickEvent : (String?) -> Unit) : RecyclerView.Adapter<BookAdapter.BookViewHolder>(){
 
         val books = _books
         val clickEvent = _clickEvent
 
         class BookViewHolder(_view : View) : RecyclerView.ViewHolder(_view){
             val view = _view
+            val titleTxt = _view.findViewById<TextView>(R.id.titleText)
+            val authorTxt = _view.findViewById<TextView>(R.id.authorText)
         }
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BookViewHolder {
-            return BookViewHolder()
+            return BookViewHolder(
+                LayoutInflater.from(parent.context)
+                    .inflate(R.layout.book_list_layout, parent, false)
+            )
         }
 
         override fun onBindViewHolder(holder: BookViewHolder, position: Int) {
-            TODO("Not yet implemented")
+            holder.titleTxt.text = books[position].title
+            holder.authorTxt.text = books[position].author
+            holder.view.setOnClickListener{clickEvent(books[position].title)}
         }
 
         override fun getItemCount(): Int {
