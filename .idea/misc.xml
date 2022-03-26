@@ -5,7 +5,9 @@
       <map>
         <entry key="app/src/main/res/layout-land/activity_main.xml" value="0.23245849609375" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.11651469098277609" />
+        <entry key="app/src/main/res/layout/book_list_layout.xml" value="0.18659420289855072" />
         <entry key="app/src/main/res/layout/fragment_book_display.xml" value="0.12635869565217392" />
+        <entry key="app/src/main/res/layout/fragment_book_list.xml" value="0.18659420289855072" />
         <entry key="app/src/main/res/layout/fragment_item_list.xml" value="0.1535080311629306" />
       </map>
     </option>
