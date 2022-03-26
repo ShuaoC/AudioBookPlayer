@@ -12,8 +12,7 @@ class BookDetailsFragment : Fragment() {
 
     lateinit var bookViewModel: BookViewModel
 
-    val titleTxt = view?.findViewById<TextView>(R.id.bigTitle)
-    val authorTxt = view?.findViewById<TextView>(R.id.bigAuthor)
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,8 +32,10 @@ class BookDetailsFragment : Fragment() {
 
 
         bookViewModel.getSeletedBook().observe(requireActivity()){
-            titleTxt?.text = it.title
-            authorTxt?.text = it.author
+            val titleTxt = view?.findViewById<TextView>(R.id.bigTitle)
+            val authorTxt = view?.findViewById<TextView>(R.id.bigAuthor)
+            titleTxt.setText(it.title)
+            authorTxt.setText(it.author)
         }
     }
 

@@ -86,4 +86,5 @@ class BookListFragment : Fragment() {
                 }
             }
     }
+
 }
