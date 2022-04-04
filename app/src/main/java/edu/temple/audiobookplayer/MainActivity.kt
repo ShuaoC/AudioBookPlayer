@@ -15,7 +15,7 @@ class MainActivity : AppCompatActivity(), BookListFragment.BookListFragmentInter
         val bookList = BookList()
 
         for(i in 0..9){
-            bookList.add(BookObject(title[i],author[i]))
+
         }
 
         supportFragmentManager
