@@ -5,8 +5,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.lifecycle.ViewModelProvider
+import com.squareup.picasso.Picasso
 
 class BookDetailsFragment : Fragment() {
 
@@ -34,6 +36,8 @@ class BookDetailsFragment : Fragment() {
         bookViewModel.getSeletedBook().observe(requireActivity()){
             val titleTxt = view?.findViewById<TextView>(R.id.bigTitle)
             val authorTxt = view?.findViewById<TextView>(R.id.bigAuthor)
+            val bookimage = view?.findViewById<ImageView>(R.id.bookImage)
+            Picasso.get().load(it.url).into(bookimage)
             titleTxt.setText(it.title)
             authorTxt.setText(it.author)
         }
