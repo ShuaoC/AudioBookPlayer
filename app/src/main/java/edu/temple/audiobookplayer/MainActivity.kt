@@ -1,21 +1,27 @@
 package edu.temple.audiobookplayer
 
-import androidx.appcompat.app.AppCompatActivity
+import android.app.SearchManager
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
-import androidx.lifecycle.ViewModelProvider
+import android.widget.Button
+import android.widget.SearchView
+import androidx.appcompat.app.AppCompatActivity
+
 
 class MainActivity : AppCompatActivity(), BookListFragment.BookListFragmentInterface {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+
         val title = resources.getStringArray(R.array.title)
         val author = resources.getStringArray(R.array.author)
         val bookList = BookList()
+        val search = findViewById<Button>(R.id.searchbutton)
 
-        for(i in 0..9){
-
+        search.setOnClickListener {
+            onSearchRequested()
         }
 
         supportFragmentManager
