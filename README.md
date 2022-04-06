@@ -11,3 +11,6 @@ The user can also turn their phone side way, the app will enter landscape mode. 
 
 The user can also click on one of the book on the left, and a information window will pop up on the right.
 ![ss](https://github.com/ShuaoC/AudioBookPlayer/blob/main/Screenshot_20220326_030547.png)
+
+- 04/05/2022
+- Added a button for search. Updated book detail fragment to include an image.
